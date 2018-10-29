@@ -3,6 +3,37 @@ body {
 }
 
 
+.hide {
+    display: none;
+}
+
+.fade_out {
+    animation-name: fade_in_kf;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    /*    animation-direction: reverse;*/
+    animation-fill-mode: both;
+
+}
+
+@keyframes fade_in_kf {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade_in {
+    animation-name: fade_in_kf;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    animation-fill-mode: both;
+}
+
 
 /* -----------spilleskærm--------------- */
 
@@ -173,7 +204,7 @@ body {
 /* -----------titelskærm--------------- */
 
 #titel {
-    display: none;
+    /*        display: none;*/
 }
 
 #titelskærm {
