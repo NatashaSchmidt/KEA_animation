@@ -2,6 +2,12 @@ body {
     margin: 0
 }
 
+#screen {
+    overflow: hidden;
+
+
+}
+
 /* ----- effekter ----- */
 
 .hide {
@@ -60,66 +66,307 @@ body {
 
 
 
-.rykstjerne {}
+.rykstjerne {
+    animation-name: rykstjerne_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
 
-@keyframes rykstjerne_kf {}
+@keyframes rykstjerne_kf {
+    0% {
+        transform: translate(10vw, 20vw);
+    }
 
-
-
-
-.rykkaramelstang {}
-
-
-@keyframes rykkaramelstang_kf {}
-
-
-
-.rykappelsin {}
-
-@keyframes rykappelsin_kf {}
-
-
-
-
-.rykaeg {}
-
-@keyframes rykaeg_kf {}
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
 
 
 
-.rykbananer {}
-
-@keyframes rykbananer_kf {}
 
 
 
-.rykpaere {}
-
-@keyframes rykpaere_kf {}
-
-
-
-.rykvindruer {}
-
-@keyframes rykvindruer_kf {}
+.rykkaramelstang {
+    animation-name: rykkaramelstang_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
 
 
+@keyframes rykkaramelstang_kf {
+    0% {
+        transform: translate(-50vw, 20vw);
+    }
 
-.rykslikstang {}
-
-@keyframes rykslikstang_kf {}
-
-
-
-.rykkonfekt {}
-
-@keyframes rykkonfekt_kf {}
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
 
 
 
-.rykvandmelon {}
 
-@keyframes rykvandmelon {}
+
+.rykappelsin {
+    animation-name: rykappelsin_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
+
+@keyframes rykappelsin_kf {
+    0% {
+        transform: translate(30vw, -10vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+
+
+.rykaeg {
+    animation-name: rykaeg_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
+
+@keyframes rykaeg_kf {
+    0% {
+        transform: translate(60vw, 70vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+
+.rykbananer {
+    animation-name: rykbananer_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
+
+@keyframes rykbananer_kf {
+    0% {
+        transform: translate(-90vw, 20vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+
+.rykpaere {
+    animation-name: rykpaere_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
+
+@keyframes rykpaere_kf {
+    0% {
+        transform: translate(60vw, 40vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+
+.rykvindruer {
+    animation-name: rykvindruer_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
+
+@keyframes rykvindruer_kf {
+    0% {
+        transform: translate(90vw, 60vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+
+.rykslikstang {
+    animation-name: rykslikstang_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
+
+@keyframes rykslikstang_kf {
+    0% {
+        transform: translate(60vw, 65vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+
+.rykkonfekt {
+    animation-name: rykkonfekt_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
+
+@keyframes rykkonfekt_kf {
+    0% {
+        transform: translate(20vw, 20vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+
+.rykvandmelon {
+    animation-name: rykvandmelon;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
+
+@keyframes rykvandmelon {
+    0% {
+        transform: translate(5vw, 5vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+
+
+
+.rykaeg1 {
+    animation-name: rykaeg1_kf;
+    animation-duration: 6s;
+    animation-fill-mode: both;
+    animation-iteration-count: 10;
+}
+
+@keyframes rykaeg1_kf {
+    0% {
+        transform: translate(-3vw, -2vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+.rykbanan1 {
+    animation-name: rykbanan1_kf;
+    animation-duration: 6s;
+    animation-fill-mode: both;
+    animation-iteration-count: 10;
+}
+
+@keyframes rykbanan1_kf {
+    0% {
+        transform: translate(-1vw, -2vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+.rykslikstang1 {
+    animation-name: rykslikstang1_kf;
+    animation-duration: 6s;
+    animation-fill-mode: both;
+    animation-iteration-count: 10;
+}
+
+@keyframes rykslikstang1_kf {
+    0% {
+        transform: translate(-3vw, 0vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
+
+
+
+
+.rykvindrue1 {
+    animation-name: rykvindrue1_kf;
+    animation-duration: 6s;
+    animation-fill-mode: both;
+    animation-iteration-count: 10;
+}
+
+
+@keyframes rykvindrue1_kf {
+    0% {
+        transform: translate(-3vw, -2vw);
+    }
+
+    100% {
+        transform: translate(0vw, 0vw);
+    }
+}
 
 
 
@@ -128,7 +375,11 @@ body {
 
 
 
-#game {}
+#game {
+    overflow: hidden;
+    z-index: 0;
+
+}
 
 #spilleskaerm {
     background-image: url(produktion/Spillesk%C3%A6rm.svg);
@@ -136,6 +387,7 @@ body {
     width: 100vw;
     height: 56.25vw;
     position: relative;
+
 }
 
 #bananen {
@@ -146,6 +398,7 @@ body {
     position: absolute;
     left: 30vw;
     top: 30vw;
+    cursor: pointer;
 }
 
 #appelsin {
@@ -156,6 +409,7 @@ body {
     position: absolute;
     left: 24.5vw;
     top: 13vw;
+    cursor: pointer;
 }
 
 #karamelstang {
@@ -166,6 +420,7 @@ body {
     position: absolute;
     left: 13vw;
     top: 30vw;
+    cursor: pointer;
 }
 
 #lakrids_stjerne {
@@ -176,6 +431,7 @@ body {
     position: absolute;
     left: 6vw;
     top: 10vw;
+    cursor: pointer;
 }
 
 #lakridskonfekt {
@@ -186,6 +442,7 @@ body {
     position: absolute;
     left: 48.7vw;
     top: 32vw;
+    cursor: pointer;
 }
 
 #paere {
@@ -196,6 +453,7 @@ body {
     position: absolute;
     left: 42vw;
     top: 14vw;
+    cursor: pointer;
 }
 
 #slikstang {
@@ -206,6 +464,7 @@ body {
     position: absolute;
     left: 54vw;
     top: 15vw;
+    cursor: pointer;
 }
 
 #vandmelon {
@@ -216,6 +475,7 @@ body {
     position: absolute;
     left: 43vw;
     top: 47.8vw;
+    cursor: pointer;
 }
 
 #vindruer {
@@ -226,6 +486,7 @@ body {
     position: absolute;
     left: 52vw;
     top: 2vw;
+    cursor: pointer;
 }
 
 #aeg {
@@ -236,16 +497,21 @@ body {
     position: absolute;
     left: 26vw;
     top: 46vw;
+    cursor: pointer;
 }
 
 #points {
-    background-image: url(produktion/point_100.svg);
+    /* background-image: url(produktion/point_100.svg); */
     background-size: 100%;
     width: 7vw;
     height: 4.1vw;
     position: absolute;
     left: 1.2vw;
     top: 2vw;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    text-align: center;
+    color: yellow;
 }
 
 #time {
@@ -358,6 +624,7 @@ body {
     position: absolute;
     left: 6vw;
     top: 1.5vw;
+    cursor: pointer;
     z-index: 2;
 }
 
@@ -369,14 +636,13 @@ body {
     position: absolute;
     left: 59vw;
     top: 18vw;
+    cursor: pointer;
     z-index: 2;
 }
 
 
 /* -----------indstillinger--------------- */
-#settings {
-    display: none;
-}
+#settings {}
 
 #indstillinger {
     background-image: url(produktion/indstillinger_vindue.svg);
@@ -397,6 +663,7 @@ body {
     position: absolute;
     left: 36vw;
     top: 11.5vw;
+    cursor: pointer;
     z-index: 3;
 }
 
@@ -408,14 +675,13 @@ body {
     position: absolute;
     left: 42.6vw;
     top: 38vw;
+    cursor: pointer;
     z-index: 3;
 }
 
 /* -----------introduktion--------------- */
 
-#introduktion {
-    display: none;
-}
+#introduktion {}
 
 #intro {
     background-image: url(produktion/intro_vindue.svg);
@@ -447,14 +713,13 @@ body {
     position: absolute;
     left: 45vw;
     top: 39vw;
+    cursor: pointer;
     z-index: 4;
 }
 
 /* -----------gameover--------------- */
 
-#tabt {
-    display: none;
-}
+#tabt {}
 
 #gameover {
     background-image: url(produktion/game_over_vindue.svg);
@@ -475,6 +740,7 @@ body {
     position: absolute;
     left: 35.3vw;
     top: 11vw;
+    cursor: pointer;
     z-index: 1;
 }
 
@@ -486,14 +752,13 @@ body {
     position: absolute;
     left: 45vw;
     top: 39vw;
+    cursor: pointer;
     z-index: 1;
 }
 
 /* -----------levelcomplete--------------- */
 
-#vundet {
-    display: none;
-}
+#vundet {}
 
 #levelcomplete {
     background-image: url(produktion/level_complete_vindue.svg);
@@ -514,6 +779,7 @@ body {
     position: absolute;
     left: 35.3vw;
     top: 11vw;
+    cursor: pointer;
     z-index: 1;
 }
 
@@ -525,5 +791,6 @@ body {
     position: absolute;
     left: 45vw;
     top: 39vw;
+    cursor: pointer;
     z-index: 1;
 }

@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+}
+
+
+#bg {
+    background-color: floralwhite;
+    width: 100vw;
+    height: 56.25vw;
+    position: relative;
+}
+
+
+#boks1 {
+    background: red;
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+    top: 20vw;
+    left: 30vw;
+    cursor: grab;
+}
+
+#boks2 {
+    background: blue;
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+    top: 20vw;
+    left: 45vw;
+    cursor: grab;
+}
+
+#score {
+    font-size: 3rem;
+    font-weight: 900;
+    position: absolute;
+    top: 8vw;
+    left: 41vw;
+}
