@@ -8,6 +8,44 @@ body {
 
 }
 
+/*TOGGLE*/
+
+
+#music {
+    background-size: 500% 100%;
+    width: 9vw;
+    height: 3vw;
+    display: inline-block;
+    top: 20vw;
+    left: 54vw;
+    z-index: 3;
+    position: absolute;
+}
+
+#effekter {
+    background-size: 500% 100%;
+    width: 9vw;
+    height: 3vw;
+    display: inline-block;
+    top: 25vw;
+    left: 54vw;
+    z-index: 3;
+    position: absolute;
+}
+
+.on {
+    background-color: green;
+
+}
+
+.off {
+    background-color: red;
+
+}
+
+
+
+
 /* ----- effekter ----- */
 
 .hide {
@@ -525,36 +563,31 @@ body {
 }
 
 #energy {
-    background-image: url(produktion/liv_hjerte.svg);
-    background-size: 100%;
     width: 2vw;
     height: 2.5vw;
-    position: absolute;
     left: 2.6vw;
     top: 5.5vw;
 }
 
 #energy2 {
-    background-image: url(produktion/liv_hjerte.svg);
-    background-size: 100%;
     width: 2vw;
     height: 2.5vw;
-    position: absolute;
     left: 5vw;
     top: 5.5vw;
 }
 
 #energy3 {
-    background-image: url(produktion/liv_hjerte.svg);
-    background-size: 100%;
     width: 2vw;
     height: 2.5vw;
-    position: absolute;
     left: 7vw;
     top: 5.5vw;
 }
 
-
+.heart {
+    background-image: url(produktion/liv_hjerte.svg);
+    position: absolute;
+    background-size: 100%;
+}
 
 /* -----------titelskærm--------------- */
 
