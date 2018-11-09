@@ -6,6 +6,8 @@ let points = 0;
 let life = 3;
 let showSettingsEffektSound = true;
 let showSettingsMusic = true;
+let timeLeft = 5;
+
 
 function sidenVises() {
     console.log("siden vises");
@@ -21,20 +23,27 @@ function showStart() {
     document.querySelector("#introduktion").classList.add("hide");
     document.querySelector("#settings").classList.add("hide");
     document.querySelector("#indstillinger_knap").addEventListener("click", showSettings);
-    document.querySelector("#bananen").classList.add("hide");
-    document.querySelector("#appelsin").classList.add("hide");
-    document.querySelector("#karamelstang").classList.add("hide");
-    document.querySelector("#lakrids_stjerne").classList.add("hide");
-    document.querySelector("#lakridskonfekt").classList.add("hide");
-    document.querySelector("#paere").classList.add("hide");
-    document.querySelector("#slikstang").classList.add("hide");
-    document.querySelector("#vandmelon").classList.add("hide");
-    document.querySelector("#aeg").classList.add("hide");
-    document.querySelector("#vindruer").classList.add("hide");
+
+    document.querySelector("#game_elements").classList.add("hide");
+
+    //    document.querySelector("#bananen").classList.add("hide");
+    //    document.querySelector("#appelsin").classList.add("hide");
+    //    document.querySelector("#karamelstang").classList.add("hide");
+    //    document.querySelector("#lakrids_stjerne").classList.add("hide");
+    //    document.querySelector("#lakridskonfekt").classList.add("hide");
+    //    document.querySelector("#paere").classList.add("hide");
+    //    document.querySelector("#slikstang").classList.add("hide");
+    //    document.querySelector("#vandmelon").classList.add("hide");
+    //    document.querySelector("#aeg").classList.add("hide");
+    //    document.querySelector("#vindruer").classList.add("hide");
 
     document.querySelector("#myMusic").currentTime = 0;
     document.querySelector("#myMusic").play();
 
+    document.querySelector("#setting_effekt_sound").addEventListener("click", toggleSounds);
+    document.querySelector("#setting_music").addEventListener("click", toggleMusic);
+
+    document.querySelector("#viser").classList.add("hide");
 
 
 }
@@ -91,16 +100,17 @@ function startGame() {
     document.querySelector("#titel").classList.add("hide");
     document.querySelector("#game").classList.add("show");
 
-    document.querySelector("#bananen").classList.remove("hide");
-    document.querySelector("#appelsin").classList.remove("hide");
-    document.querySelector("#karamelstang").classList.remove("hide");
-    document.querySelector("#lakrids_stjerne").classList.remove("hide");
-    document.querySelector("#lakridskonfekt").classList.remove("hide");
-    document.querySelector("#paere").classList.remove("hide");
-    document.querySelector("#slikstang").classList.remove("hide");
-    document.querySelector("#vandmelon").classList.remove("hide");
-    document.querySelector("#aeg").classList.remove("hide");
-    document.querySelector("#vindruer").classList.remove("hide");
+    document.querySelector("#game_elements").classList.remove("hide");
+    //    document.querySelector("#bananen").classList.remove("hide");
+    //    document.querySelector("#appelsin").classList.remove("hide");
+    //    document.querySelector("#karamelstang").classList.remove("hide");
+    //    document.querySelector("#lakrids_stjerne").classList.remove("hide");
+    //    document.querySelector("#lakridskonfekt").classList.remove("hide");
+    //    document.querySelector("#paere").classList.remove("hide");
+    //    document.querySelector("#slikstang").classList.remove("hide");
+    //    document.querySelector("#vandmelon").classList.remove("hide");
+    //    document.querySelector("#aeg").classList.remove("hide");
+    //    document.querySelector("#vindruer").classList.remove("hide");
 
     document.querySelector("#bananen").addEventListener("click", clickFrugt);
     document.querySelector("#appelsin").addEventListener("click", clickFrugt);
@@ -113,10 +123,16 @@ function startGame() {
     document.querySelector("#aeg").addEventListener("click", clickSlik);
     document.querySelector("#vindruer").addEventListener("click", clickFrugt);
 
+    document.querySelector("#viser").classList.remove("hide");
+
     document.querySelector("#myMusic").currentTime = 0;
     document.querySelector("#myMusic").play();
     document.querySelector("#gisp2").currentTime = 0;
     document.querySelector("#gisp2").play();
+
+    document.querySelector("#viser").addEventListener("animationend", gameStatus);
+
+    timeLeftFc();
 
 
 }
@@ -128,43 +144,29 @@ function clickSlik() {
 
 
     if (this.classList.contains("rykkaramelstang")) {
-        console.log("slik");
-        document.querySelector("#mmm").currentTime = 0;
-        document.querySelector("#mmm").play();
-        points++;
-        document.querySelector("#points").innerHTML = points;
+        console.log("karamelstang");
 
+        addPoint();
 
     } else if (this.classList.contains("rykstjerne")) {
-        console.log("slik");
-        document.querySelector("#mmm").currentTime = 0;
-        document.querySelector("#mmm").play();
-        points++;
-        document.querySelector("#points").innerHTML = points;
+        console.log("lakridsstjerne");
 
+        addPoint();
 
     } else if (this.classList.contains("rykkonfekt")) {
-        console.log("slik");
-        document.querySelector("#mmm").currentTime = 0;
-        document.querySelector("#mmm").play();
-        points++;
-        document.querySelector("#points").innerHTML = points;
+        console.log("lakridskonfekt");
 
+        addPoint();
 
     } else if (this.classList.contains("rykslikstang")) {
-        console.log("slik");
-        document.querySelector("#mmm").currentTime = 0;
-        document.querySelector("#mmm").play();
-        points++;
-        document.querySelector("#points").innerHTML = points;
+        console.log("slikstang");
 
+        addPoint();
 
     } else if (this.classList.contains("rykaeg")) {
-        console.log("slik");
-        document.querySelector("#mmm").currentTime = 0;
-        document.querySelector("#mmm").play();
-        points++;
-        document.querySelector("#points").innerHTML = points;
+        console.log("æg");
+
+        addPoint();
 
     }
 
@@ -173,7 +175,16 @@ function clickSlik() {
     this.removeEventListener("click", clickSlik);
 
     gameStatus();
+}
 
+
+function addPoint() {
+    document.querySelector("#mmm").currentTime = 0;
+    document.querySelector("#mmm").play();
+
+    console.log(points + " point tilføjet ");
+    points++;
+    document.querySelector("#points").innerHTML = points;
 }
 
 
@@ -183,50 +194,31 @@ function clickFrugt() {
 
 
     if (this.classList.contains("rykbananer")) {
-        console.log("frugt");
-        document.querySelector("#boo").currentTime = 0;
-        document.querySelector("#boo").play();
-        life--;
-        document.querySelector("#heart" + life).classList.add("hide");
-
+        console.log("banan");
+        removeEnergy();
 
 
     } else if (this.classList.contains("rykappelsin")) {
-        console.log("frugt");
-        document.querySelector("#boo").currentTime = 0;
-        document.querySelector("#boo").play();
-        life--;
-        document.querySelector("#heart" + life).classList.add("hide");
+        console.log("appelsin");
 
 
-
-
+        removeEnergy();
 
     } else if (this.classList.contains("rykpaere")) {
-        console.log("frugt");
-        document.querySelector("#boo").currentTime = 0;
-        document.querySelector("#boo").play();
-        life--;
-        document.querySelector("#heart" + life).classList.add("hide");
+        console.log("pære");
 
-
+        removeEnergy();
 
     } else if (this.classList.contains("rykvandmelon")) {
-        console.log("frugt");
-        document.querySelector("#boo").currentTime = 0;
-        document.querySelector("#boo").play();
-        life--;
-        document.querySelector("#heart" + life).classList.add("hide");
+        console.log("vandmelon");
 
+        removeEnergy();
 
     } else if (this.classList.contains("rykvindruer")) {
-        console.log("frugt");
-        document.querySelector("#boo").currentTime = 0;
-        document.querySelector("#boo").play();
-        life--;
-        document.querySelector("#heart" + life).classList.add("hide");
+        console.log("vindruer");
 
 
+        removeEnergy();
 
     }
     console.log(this);
@@ -238,7 +230,15 @@ function clickFrugt() {
 }
 
 
+function removeEnergy() {
+    document.querySelector("#boo").currentTime = 0;
+    document.querySelector("#boo").play();
 
+    console.log("life før den bliver skjult " + life);
+    document.querySelector("#energy" + life).classList.add("hide");
+    life--;
+
+}
 
 
 function hideSettings() {
@@ -252,18 +252,32 @@ function toggleSounds() {
 
     if (showSettingsEffektSound == true) {
         showSettingsEffektSound = false;
-        soundsOff();
+        document.querySelector("#effekter_sprite").classList.remove("off_on");
+        document.querySelector("#effekter_sprite").classList.add("on_off");
+        document.querySelector("#effekter_sprite").addEventListener("animationend", soundsOff);
+
+
+
+        //soundsOff();
     } else {
         showSettingsEffektSound = true;
-        soundsOn();
+        document.querySelector("#effekter_sprite").classList.remove("off");
+        document.querySelector("#effekter_sprite").classList.add("off_on");
+        document.querySelector("#effekter_sprite").addEventListener("animationend", soundsOn);
+
+
+        // soundsOn();
 
     }
 }
 
 function soundsOff() {
-    console.log("soundsOff");
-    document.querySelector("#effekter").classList.remove("on");
-    document.querySelector("#effekter").classList.add("off");
+    console.log("soundsOff" + showSettingsEffektSound);
+
+    document.querySelector("#effekter_sprite").removeEventListener("animationend", soundsOff);
+    document.querySelector("#effekter_sprite").classList.remove("on_off");
+    document.querySelector("#effekter_sprite").classList.add("off");
+
 
     document.querySelector("#mmm").muted = true;
     document.querySelector("#boo").muted = true;
@@ -274,9 +288,12 @@ function soundsOff() {
 }
 
 function soundsOn() {
-    console.log("soundsOn");
-    document.querySelector("#effekter").classList.remove("off");
-    document.querySelector("#effekter").classList.add("on");
+    console.log("soundsOn" + showSettingsEffektSound);
+
+    document.querySelector("#effekter_sprite").removeEventListener("animationend", soundsOn);
+    document.querySelector("#effekter_sprite").classList.remove("off_on");
+    document.querySelector("#effekter_sprite").classList.add("on");
+
 
     document.querySelector("#mmm").muted = false;
     document.querySelector("#boo").muted = false;
@@ -289,39 +306,70 @@ function soundsOn() {
 }
 
 function toggleMusic() {
-    console.log("toggleMusic");
+    console.log("showSettingsMusic function " + showSettingsMusic);
     if (showSettingsMusic == true) {
         showSettingsMusic = false;
-        musicOff();
+
+        document.querySelector("#music_sprite").classList.remove("off_on");
+        document.querySelector("#music_sprite").classList.add("on_off");
+
+        document.querySelector("#music_sprite").addEventListener("animationend", musicOff);
+
+        //musicOff();
     } else {
         showSettingsMusic = true;
-        musicOn();
+
+        document.querySelector("#music_sprite").classList.remove("off");
+        document.querySelector("#music_sprite").classList.add("off_on");
+        document.querySelector("#music_sprite").addEventListener("animationend", musicOn);
+
+        //musicOn();
 
     }
 }
 
 
 function musicOff() {
-    console.log("musicOff");
+    console.log("musicOff function værdi er " + showSettingsEffektSound);
 
-    document.querySelector("#music").classList.remove("on");
-    document.querySelector("#music").classList.add("off");
+    document.querySelector("#music_sprite").removeEventListener("animationend", musicOff);
+    document.querySelector("#music_sprite").classList.remove("on_off");
+    document.querySelector("#music_sprite").classList.add("off");
+
+
+
     document.querySelector("#myMusic").muted = true;
+
 
 
 }
 
 function musicOn() {
-    console.log("musicOn");
+    console.log("musicOn function værdi er " + showSettingsEffektSound);
 
-    document.querySelector("#myMusic").classList.remove("off");
-    document.querySelector("#myMusic").classList.add("on");
+    document.querySelector("#music_sprite").removeEventListener("animationend", musicOn);
+    document.querySelector("#music_sprite").classList.remove("off_on");
+    document.querySelector("#music_sprite").classList.add("on");
+
+
     document.querySelector("#myMusic").muted = false;
 
 }
 
 
+function timeLeftFc() {
+    console.log("timeLeftFC" + timeLeft);
 
+    if (timeLeft > 0) {
+        timeLeft--;
+        setTimeout(timeLeftFc, 1000);
+    } else if (points == 5) {
+        levelComplete();
+
+    } else {
+        gameOver();
+    }
+}
 
 
 function gameStatus() {
@@ -329,16 +377,11 @@ function gameStatus() {
     // console.log(life);
     if (life == 0) {
         gameOver();
-    } else if (points == 5) {
-        levelComplete();
-
     }
-    /* else if (points <= 5) {
-           gameOver();
-       } */
 
 
 }
+
 
 function gameOver() {
     console.log("gameOver");
@@ -348,6 +391,11 @@ function gameOver() {
     document.querySelector("#music").classList.remove("on");
     document.querySelector("#music").classList.add("off");
 
+    document.querySelector("#myMusic").muted = true;
+
+    document.querySelector("#spil_igen1").addEventListener("click", newGame);
+    document.querySelector("#kryds2").addEventListener("click", newGame);
+
 }
 
 function levelComplete() {
@@ -355,19 +403,28 @@ function levelComplete() {
     document.querySelector("#vundet").classList.remove("hide");
     document.querySelector("#vinderlyd").currentTime = 0;
     document.querySelector("#vinderlyd").play();
+    document.querySelector("#music").classList.remove("on");
+    document.querySelector("#music").classList.add("off");
 
     document.querySelector("#myMusic").muted = true;
 
-    document.querySelector("#spil_igen2").addEventListener("click", sidenVises);
-    document.querySelector("#kryds3").addEventListener("click", sidenVises);
+    document.querySelector("#spil_igen2").addEventListener("click", newGame);
+    document.querySelector("#kryds3").addEventListener("click", newGame);
 
 
 }
 
-// har problemer med at fjerne frugt og hjerter.
-// har problemer med at nulstille point, når jeg starter spil forfra. evt. reset-kode?
-// har problemer med baggrunds musikken, der ikke spilles ved titelskærm
-// baggrundsmusikken skal spille ved titelskærm, stoppe ved introskærm, og spille forfra ved spillets begyndelse.
+function newGame() {
+    location = location.href;
+}
+
+
+
+// lav en ekstra klasse, der hedder .frugt, som skal sættes på alt frugt ved siden af ryk-klassen. så bliver det dén reference, der fører frugterne ned til clickFrugt().
+
+//lav det samme på clickSlik
+
+//ret State Machine Diagram.
 
 
 
